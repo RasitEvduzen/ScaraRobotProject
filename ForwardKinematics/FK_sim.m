@@ -35,7 +35,6 @@ for i=1:NoD
     JointVar = [theta1 theta2 0 theta4];  % Joint Parameters
 
     view(40,15)% azimuth, elevation
-%     view((-i+180)*2,15)% azimuth, elevation
     trplot(eye(4,4),'thick',1,'rgb','length',50), hold on, grid on % Base Triad
 
     T04 = eye(4,4);
