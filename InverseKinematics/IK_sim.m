@@ -68,7 +68,6 @@ for i=1:size(traj,1)
         T04 = T04 * DHMatrixModify(DhParam(i,1),DhParam(i,2),DhParam(i,3),JointVar(i));   % (alpha,a,d,theta)
         AllMatrix = [AllMatrix; T04];
         trplot(T04,'thick',0.1,'rgb','length',50),hold on,axis equal, axis([-250 250 -250 250 0 350])
-        plot3([temp(1,4) T04(1,4)],[temp(2,4) T04(2,4)],[temp(3,4) T04(3,4)],'k','LineWidth',1);
         xlabel('X-axis'),ylabel('Y-axis'),zlabel('Z-axis'),title('Scara Robot Inverse Kinematic Simulation')
     end
     target_pose_ik = AllMatrix(end-3:end,:);
