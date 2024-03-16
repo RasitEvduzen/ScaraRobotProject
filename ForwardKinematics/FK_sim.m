@@ -21,7 +21,6 @@ tt4 = linspace(90,-90,NoD);
 
 
 figure('units','normalized','outerposition',[0 0 1 1],'color','w')
-gif('ScaraFKSim2.gif')
 for i=1:NoD
     clf
     theta1 = tt1(i);           % J1
@@ -35,8 +34,8 @@ for i=1:NoD
     DhParam = [alpha; a; d]';             % DH Parameters
     JointVar = [theta1 theta2 0 theta4];  % Joint Parameters
 
-%     view(40,15)% azimuth, elevation
-    view((-i+180)*2,15)% azimuth, elevation
+    view(40,15)% azimuth, elevation
+%     view((-i+180)*2,15)% azimuth, elevation
     trplot(eye(4,4),'thick',1,'rgb','length',50), hold on, grid on % Base Triad
 
     T04 = eye(4,4);
@@ -54,7 +53,6 @@ for i=1:NoD
     base = trisurf(baseGeo.ConnectivityList, baseGeo.Points(:, 1), baseGeo.Points(:, 2), baseGeo.Points(:, 3));
     base.FaceColor = "#EDB120";
     base.EdgeColor = "none";
-    hold on
     plotLink1 = TransformGeo(link1Geo.Points, AllMatrix(1:4,:));
     plotLink2 = TransformGeo(link2Geo.Points, AllMatrix(5:8,:));
     plotLink3 = TransformGeo(link3Geo.Points, AllMatrix(9:12,:));
@@ -84,7 +82,5 @@ for i=1:NoD
     xlim([-300, 300]);
     ylim([-300, 300]);
     zlim([0, 265]);
-
-    pause(eps)
-    gif
+    drawnow
 end
