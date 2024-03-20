@@ -23,23 +23,21 @@ tmp = (Ox^2 + Oy^2 - a1^2 - a2^2) / (2*a1*a2);
 % theta_1 = atan2(Oy,Ox) - atan2(sqrt(Oy^2 + Ox^2 -(a2*cos(theta_2)+a1)^2),(a2*cos(theta_2)+a1));
 
 
-d3 = Oz - d0 - d3_3;
-if ((Ox < 0) && (Oy < 0)) || ((Ox >= 0) && (Oy < 0))
+% if ((Ox < 0) && (Oy < 0)) || ((Ox >= 0) && (Oy < 0))
    
     theta_2 = atan2(-sqrt(1-tmp^2),tmp);
     theta_1 = atan2(Oy,Ox) + atan2(sqrt(Oy^2 + Ox^2 -(a2*cos(theta_2)+a1)^2),(a2*cos(theta_2)+a1));
     theta_4 =  -acos(cos(theta_1)*nx+sin(theta_1)*ny) - theta_2;
 
-elseif ((Ox >= 0) && (Oy >= 0)) || ((Ox < 0) && (Oy >= 0))
-    
-    theta_2 = atan2(sqrt(1-tmp^2),tmp); 
-    theta_1 = atan2(Oy,Ox) - atan2(sqrt(Oy^2 + Ox^2 -(a2*cos(theta_2)+a1)^2),(a2*cos(theta_2)+a1));
-    theta_4 =  acos(cos(theta_1)*nx+sin(theta_1)*ny) - theta_2;
-
-end
+% elseif ((Ox >= 0) && (Oy >= 0)) || ((Ox < 0) && (Oy >= 0))
+%     theta_2 = atan2(sqrt(1-tmp^2),tmp); 
+%     theta_1 = atan2(Oy,Ox) - atan2(sqrt(Oy^2 + Ox^2 -(a2*cos(theta_2)+a1)^2),(a2*cos(theta_2)+a1));
+%     theta_4 =  acos(cos(theta_1)*nx+sin(theta_1)*ny) - theta_2;
+% end
 
 theta_1 = theta_1 * Rad_to_Deg;
 theta_2 = theta_2 * Rad_to_Deg;
+d3 = Oz - d0 - d3_3;
 theta_4 = theta_4 * Rad_to_Deg;
 
 end
