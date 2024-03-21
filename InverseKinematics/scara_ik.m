@@ -40,4 +40,21 @@ theta_2 = theta_2 * Rad_to_Deg;
 d3 = Oz - d0 - d3_3;
 theta_4 = theta_4 * Rad_to_Deg;
 
+
+
+
+% Xe = 463.5;   % Target Pose 
+% Ye = 0;       % Target Pose 
+% Ze = 87;      % Target Pose 
+% sigma = (pi/180)*0; % Target Orientation
+% 
+% XB = Xe - l4*cos(sigma);
+% YB = Ye - l4*sin(sigma);
+% d1 = Ze;
+% cosT2 = (XB^2 + YB^2 - l2^2 - l3^2)/(2*l2*l3);
+% sinT2 = sqrt(1 - cosT2^2);
+% theta2 = acos(cosT2);
+% theta1 = atan2(YB, XB) - atan2(l3*sinT2, (l2 + l3*cosT2));
+% theta3 = sigma - theta1 - theta2;
+
 end
