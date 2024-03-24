@@ -59,7 +59,7 @@ for i=1:size(traj,1)
     d = [117 0 d3+72 -45];        % Link Static Offset
     DhParam = [alpha; a; d]'; % DH Parameters
 
-    view(45,20)
+    view(145,20)
     trplot(eye(4,4),'thick',1,'rgb','length',50), hold on, grid on % Base Triad
     T04 = eye(4,4);
     AllMatrix = [];
@@ -71,6 +71,5 @@ for i=1:size(traj,1)
     end
     plot3(traj(:,1),traj(:,2),traj(:,3)+72,'r',LineWidth=2);
     PlotRobot(AllMatrix,baseGeo,link1Geo,link2Geo,link3Geo,linkTool)
-   
     drawnow
 end

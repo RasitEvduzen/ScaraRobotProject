@@ -48,37 +48,6 @@ for i=1:NoD
     end
     target_pose_fk = AllMatrix(end-3:end,:);
     % Plot Robot Geometry
-    base = trisurf(baseGeo.ConnectivityList, baseGeo.Points(:, 1), baseGeo.Points(:, 2), baseGeo.Points(:, 3));
-    base.FaceColor = "#EDB120";
-    base.EdgeColor = "none";
-    plotLink1 = TransformGeo(link1Geo.Points, AllMatrix(1:4,:));
-    plotLink2 = TransformGeo(link2Geo.Points, AllMatrix(5:8,:));
-    plotLink3 = TransformGeo(link3Geo.Points, AllMatrix(9:12,:));
-    plotLinkTool = TransformGeo(linkTool.Points, AllMatrix(13:end,:));
-    EEPoint   = TransformGeo([0, 0, 0, 1], AllMatrix(13:end,:));
-
-    l1 = trisurf(link1Geo.ConnectivityList, plotLink1(:, 1), plotLink1(:, 2), plotLink1(:, 3));
-    l1.FaceColor = [0.5, 0.5, 0.5];
-    l1.EdgeColor = "none";
-
-    l2 = trisurf(link2Geo.ConnectivityList, plotLink2(:, 1), plotLink2(:, 2), plotLink2(:, 3));
-    l2.FaceColor = "#EDB120";
-    l2.EdgeColor = "none";
-
-    l3 = trisurf(link3Geo.ConnectivityList, plotLink3(:, 1), plotLink3(:, 2), plotLink3(:, 3));
-    l3.FaceColor = [0.5, 0.5, 0.5];
-    l3.EdgeColor = "none";
-
-    lTool = trisurf(linkTool.ConnectivityList, plotLinkTool(:, 1), plotLinkTool(:, 2), plotLinkTool(:, 3));
-    lTool.FaceColor = "#EDB120";
-    lTool.EdgeColor = "none";
-
-    plot3(EEPoint(1, 1), EEPoint(2), EEPoint(1, 3), "b.",LineWidth=25);
-
-    camlight;
-    lightangle(250, 15);
-    xlim([-300, 300]);
-    ylim([-300, 300]);
-    zlim([0, 265]);
+    PlotRobot(AllMatrix,baseGeo,link1Geo,link2Geo,link3Geo,linkTool)
     drawnow
 end
